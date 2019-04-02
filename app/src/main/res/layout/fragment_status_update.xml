@@ -1,81 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StatusUpdateFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".StatusUpdateFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView android:id="@+id/picture"
+
+        <ImageView
+            android:id="@+id/picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mirtha"
-            android:layout_margin="10dp"/>
-        <TextView android:id="@+id/name"
+            android:layout_margin="10dp"
+            android:src="@drawable/mirtha" />
+
+        <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mirtha Legrand"
             android:layout_marginBottom="4dp"
+            android:text="Mirtha Legrand"
             android:textStyle="bold" />
-        <TextView android:id="@+id/privacyButton"
+
+        <TextView
+            android:id="@+id/privacyButton"
             style="@style/settingButton"
             android:drawableStart="@drawable/ic_group_black_18dp"
             android:drawableEnd="@drawable/ic_arrow_drop_down_black_18dp"
-            android:text="@string/friends"/>
+            android:text="@string/friends" />
+
         <TextView
             style="@style/settingButton"
             android:drawableStart="@drawable/ic_add_black_18dp"
             android:drawableEnd="@drawable/ic_arrow_drop_down_black_18dp"
-            android:text="@string/album"/>
+            android:text="@string/album" />
     </RelativeLayout>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
         android:hint="@string/whatAreYouThinking"
-        android:inputType="textAutoCorrect"/>
+        android:inputType="textAutoCorrect" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <androidx.recyclerview.widget.RecyclerView android:id="@+id/colorsRecycler"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/colorsRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:clipToPadding="false"
-            tools:orientation="horizontal"
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@android:layout/item_color" />
+            tools:listitem="@android:layout/item_color"
+            tools:orientation="horizontal" />
+
         <ImageView
             style="@style/colorButton"
             android:src="@drawable/ic_chevron_left_black_24dp" />
+
         <ImageView
             style="@style/colorButton"
             android:src="@drawable/ic_grid_on_black_24dp" />
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:text="@string/addToYourPost" />
-        <ImageView style="@style/addToPostButton"
+
+        <ImageView
+            style="@style/addToPostButton"
             android:src="@drawable/ic_photo_library_black_24dp"
-            android:tint="#40c040"/>
-        <ImageView style="@style/addToPostButton"
+            android:tint="#40c040" />
+
+        <ImageView
+            style="@style/addToPostButton"
             android:src="@drawable/ic_person_add_black_24dp"
-            android:tint="#4080ff"/>
-        <ImageView style="@style/addToPostButton"
+            android:tint="#4080ff" />
+
+        <ImageView
+            style="@style/addToPostButton"
             android:src="@drawable/ic_sentiment_very_satisfied_black_24dp"
-            android:tint="#ffc000"/>
-        <ImageView style="@style/addToPostButton"
+            android:tint="#ffc000" />
+
+        <ImageView
+            style="@style/addToPostButton"
             android:src="@drawable/ic_location_on_black_24dp"
-            android:tint="#ff2020"/>
+            android:tint="#ff2020" />
     </LinearLayout>
 </LinearLayout>
