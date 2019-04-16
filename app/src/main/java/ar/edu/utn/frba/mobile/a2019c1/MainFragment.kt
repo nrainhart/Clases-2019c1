@@ -2,13 +2,17 @@ package ar.edu.utn.frba.mobile.a2019c1
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass.
@@ -29,6 +33,22 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        twitterApi.listRepos().enqueue(object: Callback<TweetsTO> {
+            override fun onResponse(call: Call<TweetsTO>, response: Response<TweetsTO>) {
+                val tweets = response.body()
+                    ?.tweets
+                    ?: emptyList()
+                tweetsAdapter.addTweets(tweets)
+            }
+            override fun onFailure(call: Call<TweetsTO>, error: Throwable) {
+                Toast.makeText(activity, "No tweets founds!", Toast.LENGTH_SHORT).show()
+                Log.e("Error fetching tweets", error.message, error)
+            }
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
