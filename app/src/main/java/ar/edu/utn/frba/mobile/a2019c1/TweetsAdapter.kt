@@ -20,6 +20,7 @@ class TweetsAdapter(
 
     fun addTweets(tweets: List<Tweet>) {
         this.tweets = tweets
+        notifyDataSetChanged()
     }
 
     private fun tweet(position: Int): Tweet {
